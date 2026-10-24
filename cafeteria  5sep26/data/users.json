@@ -1,0 +1,29 @@
+[
+  {
+    "id": "usr_admin_1",
+    "name": "Administrador AURA",
+    "email": "admin@aura.cafe",
+    "passwordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "role": "admin",
+    "phone": "+52 55 9876 5432",
+    "createdAt": "2026-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "usr_client_demo",
+    "name": "Sofia Morales",
+    "email": "sofia@example.com",
+    "passwordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "role": "client",
+    "phone": "+52 55 1234 5678",
+    "createdAt": "2026-09-02T10:00:00.000Z"
+  },
+  {
+    "id": "usr_1791652705384_62ujz",
+    "name": "Carlos Rivera",
+    "email": "carlos_rivera_1791652705350@example.com",
+    "passwordHash": "4dbd5e49147b5102ee2731ac03dd0db7decc3b8715c3df3c1f3ddc62dcbcf86d",
+    "role": "client",
+    "phone": "+52 55 1234 5678",
+    "createdAt": "2026-10-10T17:18:25.390Z"
+  }
+]

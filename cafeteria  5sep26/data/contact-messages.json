@@ -1,0 +1,11 @@
+[
+  {
+    "id": "msg_1792861795290_yrp0",
+    "name": "Cliente Prueba Chatbot",
+    "contact": "+52 55 1111 2222",
+    "subject": "Consulta desde Chatbot",
+    "message": "¿Tienen opciones de catering para 20 personas?",
+    "status": "pending",
+    "createdAt": "2026-10-24T17:09:55.290Z"
+  }
+]

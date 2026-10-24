@@ -1,0 +1,91 @@
+[
+  {
+    "id": "ORD-705397",
+    "userId": "usr_1791652705384_62ujz",
+    "customerName": "Carlos Rivera",
+    "customerPhone": "",
+    "customerEmail": "carlos_rivera_1791652705350@example.com",
+    "items": [
+      {
+        "id": "p1",
+        "name": "Cold Brew",
+        "unitPrice": 75,
+        "quantity": 2
+      }
+    ],
+    "subtotal": 150,
+    "discount": 0,
+    "total": 150,
+    "coupon": null,
+    "deliveryMode": "pickup",
+    "paymentMethod": "google_pay",
+    "paymentStatus": "paid",
+    "paymentDetails": null,
+    "orderStatus": "listo",
+    "createdAt": "2026-10-10T17:18:25.397Z",
+    "updatedAt": "2026-10-10T17:18:25.404Z"
+  },
+  {
+    "id": "ORD-2026-1001",
+    "userId": "usr_client_demo",
+    "customerName": "Sofia Morales",
+    "customerPhone": "+52 55 1234 5678",
+    "customerEmail": "sofia@example.com",
+    "items": [
+      {
+        "id": "prod_flat_white",
+        "name": "Flat White AURA",
+        "unitPrice": 85,
+        "quantity": 2,
+        "size": "Grande (12 oz)",
+        "milk": "Leche de Avena Barista",
+        "notes": "Extra caliente"
+      },
+      {
+        "id": "prod_croissant_almendra",
+        "name": "Croissant de Almendras",
+        "unitPrice": 75,
+        "quantity": 1,
+        "size": null,
+        "milk": null,
+        "notes": null
+      }
+    ],
+    "subtotal": 245,
+    "discount": 36.75,
+    "total": 208.25,
+    "coupon": "AURA15",
+    "deliveryMode": "pickup",
+    "paymentMethod": "google_pay",
+    "paymentStatus": "paid",
+    "orderStatus": "completado",
+    "createdAt": "2026-10-09T14:30:00.000Z"
+  },
+  {
+    "id": "ORD-2026-1002",
+    "userId": "usr_client_demo",
+    "customerName": "Sofia Morales",
+    "customerPhone": "+52 55 1234 5678",
+    "customerEmail": "sofia@example.com",
+    "items": [
+      {
+        "id": "prod_nitro_cold_brew",
+        "name": "Nitro Cold Brew",
+        "unitPrice": 95,
+        "quantity": 1,
+        "size": "Estándar (12 oz)",
+        "milk": null,
+        "notes": null
+      }
+    ],
+    "subtotal": 95,
+    "discount": 0,
+    "total": 95,
+    "coupon": null,
+    "deliveryMode": "table",
+    "paymentMethod": "google_pay",
+    "paymentStatus": "paid",
+    "orderStatus": "preparando",
+    "createdAt": "2026-10-10T09:15:00.000Z"
+  }
+]

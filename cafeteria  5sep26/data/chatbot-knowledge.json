@@ -1,0 +1,633 @@
+{
+  "business": {
+    "name": "AURA Specialty Coffee",
+    "tagline": "El arte del café, perfeccionado.",
+    "phone": "+52 (55) 8900-2872",
+    "whatsapp": "5215500000000",
+    "email": "contacto@aura.cafe",
+    "address": "Av. Paseo de la Reforma 412, Cuauhtémoc, CDMX",
+    "mapsUrl": "https://maps.google.com/?q=Paseo+de+la+Reforma+412+CDMX",
+    "schedule": {
+      "weekdays": { "open": "07:00", "close": "21:00", "label": "Lunes a Viernes: 7:00 AM – 9:00 PM" },
+      "saturday": { "open": "08:00", "close": "21:30", "label": "Sábado: 8:00 AM – 9:30 PM" },
+      "sunday": { "open": "08:00", "close": "21:30", "label": "Domingo: 8:00 AM – 9:30 PM" }
+    },
+    "amenities": {
+      "wifi": true,
+      "wifiSpeed": "300 Mbps Fibra Óptica",
+      "outlets": true,
+      "petFriendly": true,
+      "petPolicy": "Mascotas 100% bienvenidas en nuestra terraza al aire libre con agua fresca de cortesía.",
+      "terrace": true,
+      "parking": "Estacionamiento de bicicletas en el local y convenio con estacionamiento a 50 metros.",
+      "airConditioning": true,
+      "seating": "Mobiliario ergonómico de roble, mesas individuales para trabajo con laptop y salas para reuniones.",
+      "reservations": "Sí, puedes reservar mesa con anticipación a través de nuestra web o por WhatsApp.",
+      "meetings": "Contamos con área tranquila adecuada para reuniones de trabajo y entrevistas."
+    },
+    "paymentMethods": [
+      { "id": "cash", "name": "Efectivo", "desc": "Aceptado en barra física" },
+      { "id": "card", "name": "Tarjetas de Débito y Crédito", "desc": "Visa, Mastercard y American Express" },
+      { "id": "google_pay", "name": "Google Pay", "desc": "Pago sin contacto y online" },
+      { "id": "apple_pay", "name": "Apple Pay", "desc": "Pago sin contacto desde tu iPhone o Apple Watch" },
+      { "id": "transfer", "name": "Transferencia SPEI", "desc": "Para eventos o pedidos corporativos" }
+    ]
+  },
+  "menu": {
+    "categories": [
+      { "id": "hot_coffee", "name": "☕ Café Caliente", "icon": "ph-coffee" },
+      { "id": "cold_drinks", "name": "🧋 Bebidas Frías", "icon": "ph-snowflake" },
+      { "id": "tea_infusions", "name": "🍵 Té e Infusiones", "icon": "ph-leaf" },
+      { "id": "bakery", "name": "🥐 Panadería", "icon": "ph-cookie" },
+      { "id": "desserts", "name": "🍰 Postres", "icon": "ph-cake" },
+      { "id": "food", "name": "🥪 Alimentos & Brunch", "icon": "ph-fork-knife" }
+    ],
+    "products": [
+      {
+        "id": "c-espresso",
+        "category": "hot_coffee",
+        "name": "Espresso Doble Origen",
+        "price": 3.60,
+        "description": "Extracción precisa a 9 bares de presión con ratio 1:2. Crema densa y notas florales y cítricas.",
+        "sizes": ["Doble Shot (60 ml)"],
+        "milks": [],
+        "allergens": "Ninguno",
+        "prepTime": "3 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "c-americano",
+        "category": "hot_coffee",
+        "name": "Café Americano Artesanal",
+        "price": 3.80,
+        "description": "Doble shot de espresso vertido sobre agua caliente a 92°C de perfil mineral controlado.",
+        "sizes": ["Regular (8 oz)", "Grande (12 oz)"],
+        "milks": ["Poco de leche entera (+0.30)", "Poco de leche de avena (+0.40)"],
+        "allergens": "Ninguno",
+        "prepTime": "3 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "c-flatwhite",
+        "category": "hot_coffee",
+        "name": "Flat White Velvet",
+        "price": 4.80,
+        "description": "Doble ristretto con microespuma de leche sedosa texturizada a 65°C. Nuestro café más vendido.",
+        "sizes": ["Regular (8 oz)", "Grande (12 oz +0.80)"],
+        "milks": ["Leche Entera", "Avena Barista (+0.60)", "Almendra (+0.60)", "Deslactosada"],
+        "allergens": "Lácteos (opción vegana con avena o almendra)",
+        "prepTime": "4 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "c-cappuccino",
+        "category": "hot_coffee",
+        "name": "Cappuccino Tradicional Italiano",
+        "price": 4.50,
+        "description": "Partes iguales de espresso, leche vaporizada y abundante espuma aterciopelada.",
+        "sizes": ["Regular (8 oz)", "Grande (12 oz +0.70)"],
+        "milks": ["Leche Entera", "Avena Barista (+0.60)", "Almendra (+0.60)", "Deslactosada"],
+        "allergens": "Lácteos (opción vegana disponible)",
+        "prepTime": "4 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "c-latte",
+        "category": "hot_coffee",
+        "name": "Caffè Latte Clásico",
+        "price": 4.70,
+        "description": "Espresso suave combinado con abundante leche caliente vaporizada y una sutil capa de crema.",
+        "sizes": ["Grande (12 oz)", "Vaso XL (16 oz +0.80)"],
+        "milks": ["Leche Entera", "Avena Barista (+0.60)", "Almendra (+0.60)", "Deslactosada"],
+        "allergens": "Lácteos (opción vegana disponible)",
+        "prepTime": "4 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "c-mocha",
+        "category": "hot_coffee",
+        "name": "Café Mocha con Chocolate Oaxaca",
+        "price": 5.20,
+        "description": "Espresso intenso con chocolate semiamargo artesanal al 70% de Oaxaca y leche texturizada.",
+        "sizes": ["Grande (12 oz)", "Vaso XL (16 oz +0.80)"],
+        "milks": ["Leche Entera", "Avena Barista (+0.60)", "Almendra (+0.60)", "Deslactosada"],
+        "allergens": "Lácteos, Cacao",
+        "prepTime": "5 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "c-macchiato",
+        "category": "hot_coffee",
+        "name": "Espresso Macchiato",
+        "price": 3.90,
+        "description": "Doble shot de espresso 'manchado' con una cucharada de microespuma de leche cremosa.",
+        "sizes": ["Corto (3 oz)"],
+        "milks": ["Leche Entera", "Avena Barista", "Deslactosada"],
+        "allergens": "Lácteos (opción vegetal disponible)",
+        "prepTime": "3 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1557006021-b85faa2bc5e2?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "c-olla",
+        "category": "hot_coffee",
+        "name": "Café de Olla AURA",
+        "price": 4.10,
+        "description": "Receta tradicional mexicana con canela en vara, piloncillo orgánico y cáscara de naranja amarga.",
+        "sizes": ["Taza 10 oz"],
+        "milks": ["Negro (Original)"],
+        "allergens": "Ninguno",
+        "prepTime": "3 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "c-chocolate",
+        "category": "hot_coffee",
+        "name": "Chocolate Caliente Artesanal",
+        "price": 4.50,
+        "description": "Chocolate molido en metate con canela y cacao criollo, espumado al molinillo tradicional.",
+        "sizes": ["Taza 10 oz", "Grande 14 oz (+0.70)"],
+        "milks": ["Leche Entera", "Avena Barista (+0.60)", "Agua (Estilo Prehispánico)"],
+        "allergens": "Lácteos (opción con agua o avena)",
+        "prepTime": "4 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "c-descafeinado",
+        "category": "hot_coffee",
+        "name": "Café Descafeinado (Swiss Water)",
+        "price": 4.00,
+        "description": "Granos descafeinados mediante proceso 100% natural con agua pura sin químicos. Sabor pleno a café.",
+        "sizes": ["Regular (8 oz)", "Grande (12 oz +0.60)"],
+        "milks": ["Leche Entera", "Avena Barista (+0.60)", "Almendra (+0.60)", "Deslactosada"],
+        "allergens": "Ninguno (o lácteos si lleva leche)",
+        "prepTime": "3 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "cold-nitro",
+        "category": "cold_drinks",
+        "name": "Nitro Cold Brew Infusion",
+        "price": 5.50,
+        "description": "Macerado 20 horas en frío con nitrógeno puro. Cascada cremosa y textura suave sin amargor.",
+        "sizes": ["Grande (12 oz)", "Vaso XL (16 oz +1.00)"],
+        "milks": ["Original Negro", "Vanilla Cloud Foam (+0.75)"],
+        "allergens": "Ninguno (o lácteos con Cloud Foam)",
+        "prepTime": "2 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "cold-frappe",
+        "category": "cold_drinks",
+        "name": "Frappé Moka Avellana",
+        "price": 5.80,
+        "description": "Espresso batido con hielo frappé, pasta natural de avellana, chocolate oscuro y crema batida.",
+        "sizes": ["Grande (16 oz)"],
+        "milks": ["Leche Entera", "Avena Barista (+0.60)", "Deslactosada"],
+        "allergens": "Lácteos, Frutos secos (Avellana)",
+        "prepTime": "5 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "cold-latte",
+        "category": "cold_drinks",
+        "name": "Iced Pistachio Latte",
+        "price": 5.90,
+        "description": "Crema de pistacho siciliano 100% natural, doble ristretto, leche de avena y hielo.",
+        "sizes": ["Grande (12 oz)", "Vaso XL (16 oz +0.90)"],
+        "milks": ["Avena Barista (Recomendada)", "Almendra", "Leche Entera"],
+        "allergens": "Frutos secos (Pistacho)",
+        "prepTime": "4 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "cold-coldbrew",
+        "category": "cold_drinks",
+        "name": "Classic Cold Brew Reserva",
+        "price": 4.90,
+        "description": "Extracción fría gota a gota con notas a chocolate amargo y frutos rojos secos sobre hielo cristalino.",
+        "sizes": ["Vaso 12 oz", "Vaso XL 16 oz (+0.70)"],
+        "milks": ["Negro Puro", "Con toque de leche de coco (+0.50)"],
+        "allergens": "Ninguno",
+        "prepTime": "2 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "cold-malteada",
+        "category": "cold_drinks",
+        "name": "Malteada Artesanal de Espresso & Vainilla",
+        "price": 6.20,
+        "description": "Helado artesanal de vainilla de Papantla batido con doble shot de espresso recién extraído.",
+        "sizes": ["Vaso 16 oz"],
+        "milks": ["Leche Entera"],
+        "allergens": "Lácteos",
+        "prepTime": "5 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "cold-tehelado",
+        "category": "cold_drinks",
+        "name": "Iced Hibiscus & Peach Tea",
+        "price": 4.40,
+        "description": "Flor de jamaica orgánica infusionada en frío con durazno blanco, menta fresca y un toque de miel.",
+        "sizes": ["Vaso 16 oz"],
+        "milks": ["Sin leche"],
+        "allergens": "Ninguno",
+        "prepTime": "3 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "tea-matcha",
+        "category": "tea_infusions",
+        "name": "Matcha Ceremonial Uji Latte",
+        "price": 5.60,
+        "description": "Matcha japonés Grado Ceremonial de Uji, Kioto. Batido con chasen de bambú y leche texturizada.",
+        "sizes": ["Caliente (10 oz)", "Iced Frío (14 oz +0.50)"],
+        "milks": ["Avena Barista", "Almendra", "Leche de Coco", "Entera"],
+        "allergens": "Lácteos (opción con leche vegetal)",
+        "prepTime": "4 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "tea-chai",
+        "category": "tea_infusions",
+        "name": "Spiced Chai Latte",
+        "price": 5.10,
+        "description": "Té negro infusionado con canela, cardamomo, jengibre, clavo de olor y anís estrella con leche suave.",
+        "sizes": ["Caliente (10 oz)", "Iced Frío (14 oz +0.40)"],
+        "milks": ["Leche Entera", "Avena Barista (+0.60)", "Almendra (+0.60)"],
+        "allergens": "Lácteos (opción vegetal disponible)",
+        "prepTime": "4 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "tea-verde",
+        "category": "tea_infusions",
+        "name": "Té Verde Sencha Orgánico",
+        "price": 4.20,
+        "description": "Hojas enteras de té verde japonés de cosecha de primavera con notas florales y vegetales suaves.",
+        "sizes": ["Tetera individual (350 ml)"],
+        "milks": ["Sin leche"],
+        "allergens": "Ninguno",
+        "prepTime": "3 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "tea-negro",
+        "category": "tea_infusions",
+        "name": "Té Negro Earl Grey Superior",
+        "price": 4.20,
+        "description": "Té negro de Ceilán perfumado con aceite natural de bergamota de Calabria y flores de aciano.",
+        "sizes": ["Tetera individual (350 ml)"],
+        "milks": ["Solo", "Con nube de leche (+0.30)"],
+        "allergens": "Ninguno",
+        "prepTime": "3 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "tea-manzanilla",
+        "category": "tea_infusions",
+        "name": "Manzanilla Flor Entera & Lavanda",
+        "price": 3.90,
+        "description": "Flores enteras de manzanilla silvestre con un toque sutil de flor de lavanda. 100% libre de cafeína.",
+        "sizes": ["Tetera individual (350 ml)"],
+        "milks": ["Sin leche"],
+        "allergens": "Ninguno",
+        "prepTime": "4 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "bak-croissant",
+        "category": "bakery",
+        "name": "Croissant Francés de Almendras",
+        "price": 4.20,
+        "description": "Masa hojaldrada con mantequilla pura de Normandía, relleno de frangipane y cubierto de almendras tostadas.",
+        "sizes": ["Pieza individual"],
+        "milks": [],
+        "allergens": "Gluten, Lácteos, Frutos secos (Almendra)",
+        "prepTime": "1 min (Calentado opcional)",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "bak-roles",
+        "category": "bakery",
+        "name": "Rol de Canela Glaseado",
+        "price": 4.10,
+        "description": "Brioche esponjoso horneado con canela de Ceilán, azúcar mascabado y glaseado suave de queso crema.",
+        "sizes": ["Pieza individual"],
+        "milks": [],
+        "allergens": "Gluten, Lácteos, Huevo",
+        "prepTime": "1 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "bak-concha",
+        "category": "bakery",
+        "name": "Concha Artesanal de Vainilla o Cacao",
+        "price": 2.90,
+        "description": "Pan dulce tradicional de masa madre enriquecida con mantequilla y costra crocante de vainilla natural o cacao.",
+        "sizes": ["Pieza individual"],
+        "milks": [],
+        "allergens": "Gluten, Lácteos, Huevo",
+        "prepTime": "1 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "bak-cookie",
+        "category": "bakery",
+        "name": "Cookie de Chocolate Belga & Flor de Sal",
+        "price": 2.80,
+        "description": "Galleta estilo Nueva York crujiente por fuera y centro húmedo con chispas de chocolate belga al 60% y sal de mar.",
+        "sizes": ["Pieza individual"],
+        "milks": [],
+        "allergens": "Gluten, Lácteos, Huevo, Soja",
+        "prepTime": "1 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "des-cheesecake",
+        "category": "desserts",
+        "name": "Cheesecake Vasco Caramelizado",
+        "price": 5.40,
+        "description": "Tarta de queso horneada a alta temperatura con superficie tostada caramelizada y centro fundente cremoso.",
+        "sizes": ["Rebanada"],
+        "milks": [],
+        "allergens": "Lácteos, Huevo (Sin harina añadida)",
+        "prepTime": "1 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "des-brownie",
+        "category": "desserts",
+        "name": "Brownie de Cacao 70% & Nuez Pecana",
+        "price": 3.90,
+        "description": "Brownie fudgy súper chocolatoso con trozos de nuez pecana tostada y toque de sal Maldon.",
+        "sizes": ["Porción individual"],
+        "milks": [],
+        "allergens": "Gluten, Lácteos, Huevo, Nueces",
+        "prepTime": "1 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "des-pastel",
+        "category": "desserts",
+        "name": "Pastel de Tres Leches al Espresso",
+        "price": 4.90,
+        "description": "Bizcocho esponjoso bañado en infusión de tres leches infusionadas con nuestro espresso de autor y canela.",
+        "sizes": ["Rebanada"],
+        "milks": [],
+        "allergens": "Gluten, Lácteos, Huevo",
+        "prepTime": "1 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "food-avocado",
+        "category": "food",
+        "name": "Avocado Toast con Masa Madre",
+        "price": 7.80,
+        "description": "Pan de masa madre de 48 hrs, crema de aguacate hass fresco, huevo pochado de libre pastoreo, dukkah y brotes.",
+        "sizes": ["Porción Completa"],
+        "milks": [],
+        "allergens": "Gluten, Huevo, Semillas (Sésamo)",
+        "prepTime": "8 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "food-panini",
+        "category": "food",
+        "name": "Panini Rústico de Pavo & Pesto",
+        "price": 8.20,
+        "description": "Ciabatta artesanal tostada a la plancha con pechuga de pavo asada, pesto de albahaca fresca, queso provolone y arúgula.",
+        "sizes": ["Completo"],
+        "milks": [],
+        "allergens": "Gluten, Lácteos, Frutos secos (Piñón/Nuez en pesto)",
+        "prepTime": "7 min",
+        "available": true,
+        "popular": true,
+        "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "food-croissant-relleno",
+        "category": "food",
+        "name": "Croissant Salado Jamón Serrano & Brie",
+        "price": 7.50,
+        "description": "Croissant de mantequilla horneado relleno de jamón serrano curado, queso brie fundido y mermelada casera de higos.",
+        "sizes": ["Pieza"],
+        "milks": [],
+        "allergens": "Gluten, Lácteos",
+        "prepTime": "5 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "food-bowl",
+        "category": "food",
+        "name": "Açai Bowl Antioxidante",
+        "price": 7.90,
+        "description": "Pulpa de açai orgánico batida con plátano y moras, coronado con granola de la casa, chía y fruta de temporada.",
+        "sizes": ["Tazón grande"],
+        "milks": [],
+        "allergens": "Avena (Gluten-friendly), Semillas (Opciones veganas)",
+        "prepTime": "6 min",
+        "available": true,
+        "popular": false,
+        "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=400&q=80"
+      }
+    ]
+  },
+  "promotions": [
+    {
+      "id": "promo-morning",
+      "title": "Combo Despertar AURA ☕🥐",
+      "desc": "Americano o Flat White + Croissant de Almendras por solo $7.50 (Ahorras $1.50).",
+      "validity": "Válido todos los días de 7:00 AM a 11:30 AM",
+      "active": true
+    },
+    {
+      "id": "promo-code",
+      "title": "15% de Descuento Online 🎁",
+      "desc": "Usa el cupón AURA15 en tu primer pedido por la web o chatbot y disfruta 15% OFF en todo el carrito.",
+      "validity": "Permanente en pedidos digitales",
+      "active": true
+    },
+    {
+      "id": "promo-afternoon",
+      "title": "Tarde Dulce: Café + Rebanada 🍰",
+      "desc": "Cualquier café de especialidad + Rebanada de Cheesecake Vasco con 15% de descuento directo.",
+      "validity": "Lunes a Jueves de 4:00 PM a 7:00 PM",
+      "active": true
+    }
+  ],
+  "recommendations": {
+    "quiz": [
+      {
+        "id": "hot",
+        "label": "🔥 Algo caliente y reconfortante",
+        "text": "Te recomendamos nuestro premiado **Flat White Velvet** ($4.80) o un reconfortante **Café de Olla AURA** ($4.10) preparado con canela y piloncillo.",
+        "productIds": ["c-flatwhite", "c-olla"]
+      },
+      {
+        "id": "cold",
+        "label": "❄️ Algo frío y refrescante",
+        "text": "Nuestras estrellas frías son el **Nitro Cold Brew Infusion** ($5.50) con textura sedosa de nitrógeno, o el refrescante **Iced Pistachio Latte** ($5.90).",
+        "productIds": ["cold-nitro", "cold-latte"]
+      },
+      {
+        "id": "sweet",
+        "label": "🥐 Algo dulce / Postre",
+        "text": "Una combinación irresistible: el **Croissant Francés de Almendras** ($4.20) recién horneado o el cremoso **Cheesecake Vasco Caramelizado** ($5.40).",
+        "productIds": ["bak-croissant", "des-cheesecake"]
+      },
+      {
+        "id": "breakfast",
+        "label": "🥑 Para desayunar / Brunch",
+        "text": "Nuestro favorito del público es el **Avocado Toast con Masa Madre de 48 hrs** ($7.80) o el **Panini Rústico de Pavo & Pesto** ($8.20).",
+        "productIds": ["food-avocado", "food-panini"]
+      },
+      {
+        "id": "no_coffee",
+        "label": "🍵 Algo sin café / Té",
+        "text": "Prueba el exquisito **Matcha Ceremonial Uji Latte** ($5.60) traído de Kioto o nuestra reconfortante **Manzanilla Flor Entera con Lavanda** ($3.90).",
+        "productIds": ["tea-matcha", "tea-manzanilla"]
+      }
+    ]
+  },
+  "faq": [
+    {
+      "id": "faq_horarios",
+      "keywords": ["horario", "horarios", "hora", "abren", "cierran", "abierto", "cerrado", "dias", "domingo", "domingos"],
+      "question": "¿Cuál es el horario de atención?",
+      "answer": "☕ **Nuestros Horarios de Servicio:**\n• **Lunes a Viernes:** 7:00 AM – 9:00 PM\n• **Sábados y Domingos:** 8:00 AM – 9:30 PM\n\n¡Abrimos todos los días del año, incluidos domingos y festivos!"
+    },
+    {
+      "id": "faq_ubicacion",
+      "keywords": ["donde", "ubicacion", "direccion", "llegar", "mapa", "queda", "zona", "calle"],
+      "question": "¿Dónde están ubicados?",
+      "answer": "📍 **Ubicación AURA Specialty Coffee:**\nAv. Paseo de la Reforma 412, Colonia Cuauhtémoc, CDMX (frente a la Glorieta de la Palma / Ahuehuete).\n\nDisponemos de terraza al aire libre y biciestacionamiento."
+    },
+    {
+      "id": "faq_wifi",
+      "keywords": ["wifi", "wi-fi", "internet", "trabajar", "laptop", "computadora", "enchufes", "contactos", "estudiar"],
+      "question": "¿Tienen Wi-Fi y enchufes para trabajar?",
+      "answer": "💻 **¡Por supuesto! Espacio diseñado para creadores:**\n• Wi-Fi de alta velocidad: Fibra óptica simétrica de 300 Mbps.\n• Enchufes y puertos USB en cada mesa de madera.\n• Música acústica a volumen moderado para concentración o llamadas de trabajo."
+    },
+    {
+      "id": "faq_mascotas",
+      "keywords": ["perro", "perros", "mascota", "mascotas", "pet", "friendly", "gato", "animales"],
+      "question": "¿Aceptan mascotas? (Pet Friendly)",
+      "answer": "🐾 **¡Somos 100% Pet Friendly!**\nTus compañeros de cuatro patas son más que bienvenidos en toda nuestra terraza exterior. Contamos con tazones de agua fresca de manantial y galletitas caninas de cortesía."
+    },
+    {
+      "id": "faq_estacionamiento",
+      "keywords": ["estacionamiento", "carro", "auto", "cochera", "parqueo", "valet", "bici"],
+      "question": "¿Tienen estacionamiento?",
+      "answer": "🚗 **Estacionamiento y Transporte:**\n• Contamos con racks cerrados para bicicletas dentro del perímetro del local.\n• Para automóviles, tenemos convenio con el estacionamiento techado a solo 50 metros sobre Reforma (1 hora gratis en consumos mayores a $15)."
+    },
+    {
+      "id": "faq_reservas",
+      "keywords": ["reservar", "reserva", "mesa", "apartar", "reunion"],
+      "question": "¿Es necesario reservar mesa?",
+      "answer": "📅 **Reservaciones:**\nNo es obligatorio reservar para grupos pequeños (puedes llegar directamente). Sin embargo, si planeas una reunión de trabajo o vienes con un grupo mayor a 4 personas, puedes apartar tu mesa en nuestra web en la sección **'Reservar Mesa'** o avisarnos por WhatsApp."
+    },
+    {
+      "id": "faq_mas_vendido",
+      "keywords": ["mas vendido", "popular", "famoso", "estrella", "especialidad", "recomiendan"],
+      "question": "¿Cuál es su café más vendido y qué recomiendan?",
+      "answer": "⭐ **Nuestras Especialidades Estrella:**\n1. **Flat White Velvet ($4.80):** Doble ristretto etíope con microespuma de leche sedosa. ¡El favorito indiscutible!\n2. **Nitro Cold Brew Infusion ($5.50):** Con textura similar a cerveza stout artesanal servida en frío.\n3. **Croissant Francés de Almendras ($4.20):** Horneado fresco cada mañana a las 6:30 AM."
+    },
+    {
+      "id": "faq_leches",
+      "keywords": ["leche", "vegetal", "avena", "almendra", "deslactosada", "soya", "coco", "lactosa"],
+      "question": "¿Tienen leche vegetal o deslactosada?",
+      "answer": "🥛 **Opciones de Leche y Bebidas:**\n• **Leche Entera Cremosa de libre pastoreo** (incluida).\n• **Leche Deslactosada** (sin costo extra).\n• **Leche de Avena Barista (+0.60):** Texturiza perfecto y resalta notas a cereal.\n• **Leche de Almendra Tostada (+0.60)**.\n• **Leche de Coco natural (+0.60)**."
+    },
+    {
+      "id": "faq_vegano_vegetariano",
+      "keywords": ["vegano", "vegana", "vegetariano", "vegetariana", "plant based", "sin carne"],
+      "question": "¿Qué opciones veganas y vegetarianas tienen?",
+      "answer": "🌱 **Opciones Plant-Based:**\n• **Bebidas:** Todas nuestras preparaciones de café, matcha y tés se pueden preparar con leche de avena o almendra.\n• **Alimentos:** Avocado Toast en pan de masa madre (puedes pedirlo sin huevo para versión 100% vegana), Açai Bowl Antioxidante y Cookie de chocolate vegana."
+    },
+    {
+      "id": "faq_sin_azucar_descafeinado",
+      "keywords": ["sin azucar", "azucar", "descafeinado", "decaf", "diabetico", "keto"],
+      "question": "¿Tienen café descafeinado y opciones sin azúcar?",
+      "answer": "🌿 **Opciones Saludables:**\n• Todas nuestras bebidas se sirven **sin endulzantes añadidos** de fábrica para respetar las notas del grano.\n• Disponemos de fruta del monje (monk fruit), stevia orgánica y miel de agave.\n• Contamos con café descafeinado de especialidad mediante el proceso **Swiss Water 100% natural** (sin químicos)."
+    },
+    {
+      "id": "faq_precios_consulta",
+      "keywords": ["cuanto cuesta", "precio", "precios", "costo", "valor", "carta"],
+      "question": "¿Cuáles son los precios promedio de las bebidas y alimentos?",
+      "answer": "💲 **Guía Rápida de Precios AURA:**\n• Espresso Doble: $3.60\n• Café Americano: $3.80\n• Cappuccino: $4.50\n• Flat White: $4.80\n• Nitro Cold Brew: $5.50\n• Matcha Uji Latte: $5.60\n• Croissants & Panadería: $2.80 a $4.20\n• Alimentos & Brunch: $7.50 a $8.20\n\nPuedes consultar la lista completa pulsando el botón **'Ver Menú'**."
+    },
+    {
+      "id": "faq_metodos_pago",
+      "keywords": ["pagar", "pago", "pagos", "tarjeta", "efectivo", "transferencia", "apple pay", "google pay", "factura", "facturacion"],
+      "question": "¿Qué métodos de pago aceptan y cómo facturo?",
+      "answer": "💳 **Métodos de Pago Aceptados:**\n• Efectivo en barra.\n• Tarjetas de Débito y Crédito (Visa, Mastercard, AMEX).\n• **Google Pay** y **Apple Pay** sin contacto o directo en la web.\n\n🧾 **Facturación Electrónica:**\nPuedes solicitar tu factura fiscal CFDI enviando tu ticket y constancia de situación fiscal a facturacion@aura.cafe o directo por WhatsApp."
+    },
+    {
+      "id": "faq_pedidos_tiempo",
+      "keywords": ["pedir", "ordenar", "pedido", "llevar", "cuanto tardan", "tiempo", "preparacion", "espera"],
+      "question": "¿Puedo pedir para llevar y cuánto tardan en preparar?",
+      "answer": "🛵 **Modalidad Pick-up Express:**\n• Puedes armar tu pedido aquí en el chatbot o en la web.\n• Tiempo de preparación promedio: **8 a 12 minutos**.\n• Al llegar a la cafetería tu café estará listo en la barra express, ¡sin hacer fila de espera!"
+    }
+  ]
+}

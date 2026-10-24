@@ -1,0 +1,17 @@
+{
+  "googlePay": {
+    "enabled": true,
+    "environment": "TEST",
+    "merchantId": "AURA_MERCHANT_9999",
+    "merchantName": "AURA Coffee Co.",
+    "gateway": "stripe",
+    "gatewayMerchantId": "acct_aura123",
+    "apiKey": "pk_test_live_key_555"
+  },
+  "business": {
+    "name": "AURA Coffee Co.",
+    "currency": "MXN",
+    "currencySymbol": "$",
+    "taxRate": 0.16
+  }
+}

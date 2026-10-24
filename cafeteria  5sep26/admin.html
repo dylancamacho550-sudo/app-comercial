@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA Café | Panel de Administración & Google Pay API</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons CDN -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- Estilos compartidos Apple Dark Mode -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#000000] text-[#F5F5F7] min-h-screen antialiased">
+
+  <!-- ================= TOP NAVBAR ================= -->
+  <header class="border-b border-white/10 bg-[#121214]/80 backdrop-blur-xl sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
+            A
+          </div>
+          <div>
+            <span class="font-bold tracking-tight text-base block text-white">AURA Admin</span>
+            <span class="text-[9px] uppercase tracking-widest text-amber-400 block font-semibold -mt-0.5">Control Center</span>
+          </div>
+        </a>
+        <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/10 text-white/80 border border-white/10">
+          v2.5 Pro
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <a href="/" class="text-xs font-semibold text-white/80 hover:text-white flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-white/10 transition-colors">
+          <i class="ph ph-arrow-left"></i>
+          <span>Volver a la Tienda</span>
+        </a>
+
+        <div class="h-4 w-px bg-white/15"></div>
+
+        <div class="flex items-center gap-2 text-xs">
+          <div class="w-7 h-7 rounded-full bg-amber-400 text-black flex items-center justify-center font-bold">
+            <i class="ph-bold ph-shield-check"></i>
+          </div>
+          <span id="admin-user-name" class="font-bold hidden sm:inline text-white">Administrador</span>
+          <button id="admin-logout-btn" class="text-xs text-red-400 hover:text-red-300 ml-1 p-1 hover:bg-white/5 rounded-lg" title="Cerrar Sesión">
+            <i class="ph ph-sign-out text-base"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= CONTENIDO PRINCIPAL ================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+    <!-- Encabezado con estado del sistema -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+          <span>Panel de Gestión y Operaciones</span>
+          <span class="live-dot" title="En vivo"></span>
+        </h1>
+        <p class="text-xs sm:text-sm text-[#A1A1A6] mt-1">Supervisa órdenes en tiempo real, métricas de venta y administración de llaves de Google Pay.</p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="refresh-data-btn" class="btn-apple-secondary px-4 py-2 text-xs font-semibold flex items-center gap-2">
+          <i class="ph ph-arrows-clockwise text-sm"></i>
+          <span>Actualizar Datos</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 1. TARJETAS DE MÉTRICAS (KPIs) -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Total Ingresos -->
+      <div class="bg-[#161618] p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+        <div class="flex items-center justify-between text-[#A1A1A6] text-xs font-medium mb-3">
+          <span>Ingresos Totales</span>
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+            <i class="ph-bold ph-currency-dollar text-base"></i>
+          </div>
+        </div>
+        <div>
+          <span id="kpi-revenue" class="text-2xl font-extrabold text-white tracking-tight">$0.00</span>
+          <span class="text-[11px] text-emerald-400 block mt-1 font-medium">✓ Ventas confirmadas</span>
+        </div>
+      </div>
+
+      <!-- Total Pedidos -->
+      <div class="bg-[#161618] p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+        <div class="flex items-center justify-between text-[#A1A1A6] text-xs font-medium mb-3">
+          <span>Órdenes Realizadas</span>
+          <div class="w-7 h-7 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center">
+            <i class="ph-bold ph-shopping-bag-open text-base"></i>
+          </div>
+        </div>
+        <div>
+          <span id="kpi-orders" class="text-2xl font-extrabold text-white tracking-tight">0</span>
+          <span class="text-[11px] text-blue-400 block mt-1 font-medium">Histórico acumulado</span>
+        </div>
+      </div>
+
+      <!-- Pedidos Activos en Cocina -->
+      <div class="bg-[#161618] p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+        <div class="flex items-center justify-between text-[#A1A1A6] text-xs font-medium mb-3">
+          <span>En Preparación / Barra</span>
+          <div class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
+            <i class="ph-bold ph-fire text-base"></i>
+          </div>
+        </div>
+        <div>
+          <span id="kpi-active" class="text-2xl font-extrabold text-amber-400 tracking-tight">0</span>
+          <span class="text-[11px] text-amber-400/80 block mt-1 font-medium">Atención inmediata</span>
+        </div>
+      </div>
+
+      <!-- Clientes Registrados -->
+      <div class="bg-[#161618] p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+        <div class="flex items-center justify-between text-[#A1A1A6] text-xs font-medium mb-3">
+          <span>Clientes Registrados</span>
+          <div class="w-7 h-7 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+            <i class="ph-bold ph-users text-base"></i>
+          </div>
+        </div>
+        <div>
+          <span id="kpi-clients" class="text-2xl font-extrabold text-white tracking-tight">0</span>
+          <span class="text-[11px] text-purple-400 block mt-1 font-medium">Cuentas activas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. SECCIÓN: ADMINISTRACIÓN DE GOOGLE PAY (REQUISITO PIZARRA) -->
+    <section class="bg-[#161618] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/10">
+        <div>
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-white text-black flex items-center justify-center text-lg font-bold">
+              <i class="ph-bold ph-google-logo"></i>
+            </div>
+            <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight">Integración y Administración de Google Pay</h2>
+          </div>
+          <p class="text-xs text-[#A1A1A6] mt-1">Configura las credenciales, llaves API y pasarela de pago para recibir cobros directamente en la API de usuario.</p>
+        </div>
+
+        <!-- Estado Badge -->
+        <div id="gpay-status-badge" class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-full text-xs font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Google Pay Activo</span>
+        </div>
+      </div>
+
+      <form id="google-pay-config-form" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <!-- Habilitar Google Pay -->
+          <div class="space-y-2">
+            <label class="block text-xs font-bold text-white/90 uppercase tracking-wider">Estado de Pasarela</label>
+            <select id="cfg-enabled" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c1c1f] border border-white/15 text-white text-xs focus:outline-none focus:ring-2 focus:ring-amber-400/50">
+              <option value="true">Activo (Visible en Checkout)</option>
+              <option value="false">Desactivado temporalmente</option>
+            </select>
+            <p class="text-[10px] text-[#A1A1A6]">Controla la visualización del botón en la bolsa de compra.</p>
+          </div>
+
+          <!-- Ambiente: TEST vs PRODUCTION -->
+          <div class="space-y-2">
+            <label class="block text-xs font-bold text-white/90 uppercase tracking-wider">Ambiente de Operación</label>
+            <select id="cfg-environment" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c1c1f] border border-white/15 text-white text-xs focus:outline-none focus:ring-2 focus:ring-amber-400/50">
+              <option value="TEST">TEST (Sandbox con tarjetas simuladas)</option>
+              <option value="PRODUCTION">PRODUCTION (Cobros reales de Google)</option>
+            </select>
+            <p class="text-[10px] text-[#A1A1A6]">Usa TEST para probar sin cargos monetarios reales.</p>
+          </div>
+
+          <!-- Pasarela / Gateway Selector -->
+          <div class="space-y-2">
+            <label class="block text-xs font-bold text-white/90 uppercase tracking-wider">Pasarela / Gateway</label>
+            <select id="cfg-gateway" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c1c1f] border border-white/15 text-white text-xs focus:outline-none focus:ring-2 focus:ring-amber-400/50">
+              <option value="example">Example / Direct Sandbox</option>
+              <option value="stripe">Stripe</option>
+              <option value="mercadopago">Mercado Pago</option>
+              <option value="adyen">Adyen</option>
+              <option value="braintree">Braintree</option>
+            </select>
+            <p class="text-[10px] text-[#A1A1A6]">Procesador que tokeniza y valida la tarjeta.</p>
+          </div>
+
+          <!-- Merchant ID de Google -->
+          <div class="space-y-2">
+            <label class="block text-xs font-bold text-white/90 uppercase tracking-wider">Merchant ID (Google Pay Console)</label>
+            <input 
+              type="text" 
+              id="cfg-merchant-id" 
+              placeholder="Ej. 12345678901234567890" 
+              class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c1c1f] border border-white/15 text-white font-mono text-xs focus:outline-none focus:ring-2 focus:ring-amber-400/50"
+            >
+            <p class="text-[10px] text-[#A1A1A6]">ID asignado por Google en tu perfil de comercio.</p>
+          </div>
+
+          <!-- Nombre de Comercio -->
+          <div class="space-y-2">
+            <label class="block text-xs font-bold text-white/90 uppercase tracking-wider">Nombre del Comercio (Merchant Name)</label>
+            <input 
+              type="text" 
+              id="cfg-merchant-name" 
+              placeholder="Ej. AURA Coffee Co." 
+              class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c1c1f] border border-white/15 text-white text-xs focus:outline-none focus:ring-2 focus:ring-amber-400/50"
+            >
+            <p class="text-[10px] text-[#A1A1A6]">Nombre visible en el modal de autorización de Google Pay.</p>
+          </div>
+
+          <!-- Gateway Merchant ID -->
+          <div class="space-y-2">
+            <label class="block text-xs font-bold text-white/90 uppercase tracking-wider">Gateway Merchant ID / Client ID</label>
+            <input 
+              type="text" 
+              id="cfg-gateway-merchant-id" 
+              placeholder="Ej. aura_coffee_production_gw" 
+              class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c1c1f] border border-white/15 text-white font-mono text-xs focus:outline-none focus:ring-2 focus:ring-amber-400/50"
+            >
+            <p class="text-[10px] text-[#A1A1A6]">Identificador de cuenta en la pasarela seleccionada.</p>
+          </div>
+
+          <!-- API Key / Secret Key -->
+          <div class="space-y-2 md:col-span-2 lg:col-span-3">
+            <label class="block text-xs font-bold text-white/90 uppercase tracking-wider">API Key / Secret Token (Para API de Usuario)</label>
+            <div class="relative">
+              <input 
+                type="password" 
+                id="cfg-api-key" 
+                placeholder="pk_test_aura_gpay_live_checkout_key_88912" 
+                class="w-full px-3.5 py-2.5 pr-10 rounded-xl bg-[#1c1c1f] border border-white/15 text-white font-mono text-xs focus:outline-none focus:ring-2 focus:ring-amber-400/50"
+              >
+              <button type="button" id="toggle-api-key-visibility" class="absolute right-3 top-2.5 text-gray-400 hover:text-white text-base">
+                <i class="ph ph-eye"></i>
+              </button>
+            </div>
+            <p class="text-[10px] text-[#A1A1A6]">Llave utilizada para verificar transacciones y autorizaciones desde la API del usuario.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-4 border-t border-white/10">
+          <div id="cfg-save-feedback" class="text-xs font-semibold text-emerald-400 hidden flex items-center gap-1.5">
+            <i class="ph ph-check-circle text-base"></i>
+            <span>Credenciales de Google Pay guardadas y sincronizadas.</span>
+          </div>
+          <button type="submit" class="btn-apple-primary px-6 py-2.5 text-xs font-bold flex items-center gap-2 ml-auto shadow-md">
+            <i class="ph ph-floppy-disk text-base"></i>
+            <span>Guardar Credenciales en Servidor</span>
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 3. SECCIÓN: GESTIÓN DE PEDIDOS Y COMANDAS (TIEMPO REAL) -->
+    <section class="bg-[#161618] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+        <div>
+          <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2">
+            <i class="ph ph-coffee text-amber-400"></i>
+            <span>Comandas y Pedidos en Tiempo Real</span>
+          </h2>
+          <p class="text-xs text-[#A1A1A6] mt-0.5">Actualiza el estado de las órdenes para notificar a los clientes en su perfil.</p>
+        </div>
+
+        <!-- Filtros rápidos -->
+        <div class="flex items-center gap-2">
+          <select id="orders-filter-status" class="px-3 py-1.5 rounded-xl bg-[#1c1c1f] border border-white/15 text-white text-xs focus:outline-none">
+            <option value="all">Todos los Estados</option>
+            <option value="preparando">En Preparación</option>
+            <option value="listo">Listos para Entrega</option>
+            <option value="completado">Completados</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Tabla de Pedidos -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-[#A1A1A6]">
+          <thead class="text-[11px] uppercase tracking-wider text-white/70 bg-white/[0.03] border-b border-white/10">
+            <tr>
+              <th class="py-3 px-4">Orden ID</th>
+              <th class="py-3 px-4">Cliente</th>
+              <th class="py-3 px-4">Detalle de Productos</th>
+              <th class="py-3 px-4">Total</th>
+              <th class="py-3 px-4">Pago</th>
+              <th class="py-3 px-4">Modalidad</th>
+              <th class="py-3 px-4">Estado Comanda</th>
+            </tr>
+          </thead>
+          <tbody id="admin-orders-tbody" class="divide-y divide-white/5">
+            <!-- Renderizado dinámico en admin.js -->
+            <tr>
+              <td colspan="7" class="py-8 text-center text-[#A1A1A6]">
+                <i class="ph ph-spinner animate-spin text-xl text-amber-400 mb-2 block"></i>
+                Cargando pedidos en tiempo real...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. SECCIÓN: MENSAJES Y CONTACTO DEL CHATBOT -->
+    <section class="bg-[#161618] rounded-3xl border border-white/10 p-6 sm:p-8 space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+        <div>
+          <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2">
+            <i class="ph ph-chat-circle-dots text-amber-400"></i>
+            <span>Consultas y Mensajes Recibidos desde el Chatbot</span>
+          </h2>
+          <p class="text-xs text-[#A1A1A6] mt-0.5">Mensajes dejados por clientes que solicitaron atención humana fuera de horario o para dudas especiales.</p>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-[#A1A1A6]">
+          <thead class="text-[11px] uppercase tracking-wider text-white/70 bg-white/[0.03] border-b border-white/10">
+            <tr>
+              <th class="py-3 px-4">Fecha</th>
+              <th class="py-3 px-4">Cliente</th>
+              <th class="py-3 px-4">Contacto</th>
+              <th class="py-3 px-4">Mensaje</th>
+            </tr>
+          </thead>
+          <tbody id="admin-chatbot-messages-tbody" class="divide-y divide-white/5">
+            <tr>
+              <td colspan="4" class="py-6 text-center text-[#A1A1A6]">
+                No hay mensajes pendientes por el momento.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/admin.js"></script>
+</body>
+</html>
